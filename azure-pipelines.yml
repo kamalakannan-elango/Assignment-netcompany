@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  imageName: 'myfirstacrnetc.azurecr.io/azure-vote-front:v2'
+  imageName: 'myfirstacrnetc.azurecr.io/azure-vote-front'
 
 steps:
   - task: Docker@2
