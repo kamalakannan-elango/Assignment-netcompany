@@ -37,7 +37,3 @@ steps:
       containerRegistry: $(dockerRegistryServiceConnection)
       tags: |
         $(redisImageTag)
-  - task: PublishBuildArtifacts@1
-    inputs:
-      targetPath: ./azure-vote-all-in-one-redis.yaml
-      artifactName: azure-vote
