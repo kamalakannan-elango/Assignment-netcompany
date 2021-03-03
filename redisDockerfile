@@ -1,0 +1,1 @@
+FROM myfirstacrnetc.azurecr.io/bitnami/redis:6.0.8

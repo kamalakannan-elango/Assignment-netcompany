@@ -10,18 +10,30 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  imageRepository: 'myfirstacrnetc.azurecr.io/azure-vote-front'
-  dockerfilePath: 'azure-vote/Dockerfile'
   dockerRegistryServiceConnection: 'myazureregistry'
-  tag: v2
+  azureVoteImage: 'azure-vote-front'
+  azureVoteDockerfile: 'azure-vote/Dockerfile'
+  azureVoteImageTag: v2
+  redisImage: 'bitnami/redis'
+  redisDockerfile: 'redisDockerfile'
+  redisImageTag: 6.0.8
 
 steps:
   - task: Docker@2
-    displayName: Build and push an image to container registry
+    displayName: Build and push azure-vote-front image to container registry
     inputs:
       command: buildAndPush
-      repository: $(imageRepository)
-      dockerfile: $(dockerfilePath)
+      repository: $(azureVoteImage)
+      dockerfile: $(azureVoteDockerfile)
       containerRegistry: $(dockerRegistryServiceConnection)
       tags: |
-        $(tag)
+        $(azureVoteImageTag)
+  - task: Docker@2
+    displayName: Download and push redis image to container registry
+    inputs:
+      command: buildAndPush
+      repository: $(redisImage)
+      dockerfile: $(rediseDockerfile)
+      containerRegistry: $(dockerRegistryServiceConnection)
+      tags: |
+        $(redisImageTag)
