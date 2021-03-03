@@ -25,4 +25,4 @@ steps:
       repository: $(imageName)
       command: push
       Dockerfile: azure-vote/Dockerfile
-	    containerRegistry : myfirstacrnetc.azurecr.io
+      containerRegistry : myfirstacrnetc.azurecr.io
