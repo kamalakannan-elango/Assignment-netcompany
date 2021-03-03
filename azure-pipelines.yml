@@ -13,6 +13,7 @@ variables:
   imageRepository: 'myfirstacrnetc.azurecr.io/azure-vote-front'
   dockerfilePath: 'azure-vote/Dockerfile'
   dockerRegistryServiceConnection: 'myazureregistry'
+  tag: v2
 
 steps:
   - task: Docker@2
