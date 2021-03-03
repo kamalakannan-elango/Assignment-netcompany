@@ -33,7 +33,7 @@ steps:
     inputs:
       command: buildAndPush
       repository: $(redisImage)
-      dockerfile: $(rediseDockerfile)
+      dockerfile: $(redisDockerfile)
       containerRegistry: $(dockerRegistryServiceConnection)
       tags: |
         $(redisImageTag)
