@@ -10,12 +10,24 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  imageName: 'myfirstacrnetc.azurecr.io/azure-vote-front'
+  imageRepository: 'myfirstacrnetc.azurecr.io/azure-vote-front'
+  dockerfilePath: 'azure-vote/Dockerfile'
+  dockerRegistryServiceConnection: 'myfirstacrnetc.azurecr.io'
 
-steps:
-  - task: Docker@2
-    displayName: Build an image
-    inputs:
-      repository: $(imageName)
-      command: build
-      Dockerfile: azure-vote/Dockerfile
+- stage: Build
+  displayName: Build and push stage
+  jobs:  
+  - job: Build
+    displayName: Build job
+    pool:
+      vmImage: $(vmImage)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
