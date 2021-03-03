@@ -37,3 +37,7 @@ steps:
       containerRegistry: $(dockerRegistryServiceConnection)
       tags: |
         $(redisImageTag)
+  - task: PublishBuildArtifacts@1
+    inputs:
+      targetPath: $(System.DefaultWorkingDirectory)
+      artifactName: azure-vote
