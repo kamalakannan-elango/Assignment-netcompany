@@ -39,5 +39,5 @@ steps:
         $(redisImageTag)
   - task: PublishBuildArtifacts@1
     inputs:
-      targetPath: $(System.DefaultWorkingDirectory)/azure-vote-all-in-one-redis.yaml
+      targetPath: ./azure-vote-all-in-one-redis.yaml
       artifactName: azure-vote
