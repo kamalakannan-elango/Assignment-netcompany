@@ -37,3 +37,11 @@ steps:
       containerRegistry: $(dockerRegistryServiceConnection)
       tags: |
         $(redisImageTag)
+<<<<<<< HEAD
+=======
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
+>>>>>>> 2a4a8c7948c3aa87853db8aaf71793b6adc40748
