@@ -23,6 +23,6 @@ steps:
     displayName: Push an image
     inputs:
       repository: $(imageName)
-      command: Push
+      command: push
       Dockerfile: azure-vote/Dockerfile
 	    containerRegistry : myfirstacrnetc.azurecr.io
