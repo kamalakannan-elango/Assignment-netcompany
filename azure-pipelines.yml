@@ -39,5 +39,6 @@ steps:
         $(redisImageTag)
   - task: PublishBuildArtifacts@1
     inputs:
-      targetPath: ./azure-vote-all-in-one-redis.yaml
-      artifactName: azure-vote
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
